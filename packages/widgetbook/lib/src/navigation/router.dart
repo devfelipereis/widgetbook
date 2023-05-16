@@ -59,7 +59,7 @@ void refreshRoute<CustomTheme>(
     );
   }
 
-  router.goNamed('/', queryParams: queryParameters);
+  router.goNamed('/', queryParameters: queryParameters);
 }
 
 bool _parseBoolQueryParameter({
@@ -78,14 +78,14 @@ GoRouter createRouter<CustomTheme>({
   required PreviewProvider previewProvider,
 }) {
   final router = GoRouter(
-    redirect: (routerState) {
-      final theme = routerState.queryParams['theme'];
-      final locale = routerState.queryParams['locale'];
-      final device = routerState.queryParams['device'];
-      final textScaleFactor = routerState.queryParams['text-scale-factor'];
-      final orientation = routerState.queryParams['orientation'];
-      final frame = routerState.queryParams['frame'];
-      final path = routerState.queryParams['path'];
+    redirect: (context, routerState) {
+      final theme = routerState.queryParameters['theme'];
+      final locale = routerState.queryParameters['locale'];
+      final device = routerState.queryParameters['device'];
+      final textScaleFactor = routerState.queryParameters['text-scale-factor'];
+      final orientation = routerState.queryParameters['orientation'];
+      final frame = routerState.queryParameters['frame'];
+      final path = routerState.queryParameters['path'];
 
       workbenchProvider
         ..setThemeByName(theme)
@@ -103,10 +103,10 @@ GoRouter createRouter<CustomTheme>({
         path: '/',
         pageBuilder: (context, state) {
           final disableNavigation = _parseBoolQueryParameter(
-            value: state.queryParams['disable-navigation'],
+            value: state.queryParameters['disable-navigation'],
           );
           final disableProperties = _parseBoolQueryParameter(
-            value: state.queryParams['disable-properties'],
+            value: state.queryParameters['disable-properties'],
           );
 
           return NoTransitionPage<void>(
