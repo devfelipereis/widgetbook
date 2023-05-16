@@ -15,6 +15,7 @@ dependencies:
     git:
       url: https://github.com/devfelipereis/widgetbook
       path: packages/widgetbook_models
+      ref: upgrade-flutter-3.10
 
 dev_dependencies:
   test: ^1.18.2
