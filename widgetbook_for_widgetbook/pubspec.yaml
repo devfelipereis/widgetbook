@@ -6,15 +6,21 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.5 <3.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
-  widgetbook: ^3.0.0-beta.13
-  widgetbook_annotation: ^3.0.0-beta.6
+  widgetbook:
+    git:
+      url: https://github.com/devfelipereis/widgetbook
+      path: packages/widgetbook
+  widgetbook_annotation:
+    git:
+      url: https://github.com/devfelipereis/widgetbook
+      path: packages/widgetbook_annotation
   widgetbook_core:
     path: ../packages/widgetbook_core
 
